@@ -1,4 +1,4 @@
-.PHONY: all clean run install
+.PHONY: all clean run install uninstall
 
 CC 	   = gcc
 CFLAGS = -Wall -MMD -MP -g -O2
@@ -18,10 +18,13 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean: 
-	@del $(TARGET) $(OBJS) $(DEPS)
+	del $(TARGET) $(OBJS) $(DEPS)
 
 run: all
 	./$(TARGET)
 
 install: all
 	copy $(TARGET) "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+
+uninstall:
+	del "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\$(TARGET)"
