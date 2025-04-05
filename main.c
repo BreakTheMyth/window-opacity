@@ -12,7 +12,8 @@ int  g_winNum    = sizeof(g_class) / sizeof(char*);
 HWND g_preWin;
 BYTE g_preWinOpacity;
 
-int main() {
+int WINAPI WinMain(HINSTANCE hInstance,
+    HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     SetWinEventHook(EVENT_SYSTEM_FOREGROUND,
         EVENT_SYSTEM_FOREGROUND, NULL, winEvent, 0, 0,
         WINEVENT_OUTOFCONTEXT);

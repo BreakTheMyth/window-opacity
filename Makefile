@@ -1,18 +1,19 @@
 .PHONY: all clean run install uninstall
 
-CC 	   = gcc
-CFLAGS = -Wall -MMD -MP -g -O2
-TARGET = window-opacity.exe
-SRCS   = main.c
-OBJS   = $(SRCS:%.c=%.o)
-DEPS   = $(OBJS:.o=.d)
+CC 	    = gcc
+CFLAGS  = -Wall -MMD -MP -g -O2
+LDFLAGS = -mwindows
+TARGET  = window-opacity.exe
+SRCS    = main.c
+OBJS    = $(SRCS:%.c=%.o)
+DEPS    = $(OBJS:.o=.d)
 
 -include $(DEPS)
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $^ -o $@
+	$(CC) $^ -o $@ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
