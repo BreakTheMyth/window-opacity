@@ -39,7 +39,15 @@ make uninstall
 #define /*窗口获得焦点时的透明度*/ WINDOW_FOCUS_OPACITY 224,       224,                  192,             224,                  224
 ```
 
-修改完后重新安装
+修改完后进行调试
+
+```powershell
+make run
+```
+
+
+
+调试完后重新安装
 
 ```powershell
 make install
