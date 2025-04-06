@@ -46,14 +46,11 @@ make uninstall
 make run
 ```
 
-
-
-调试完后重新安装
+结束调试重新安装
 
 ```powershell
+make stop
 make install
 ```
 
 程序会在下次开机时启动
-
-# 
