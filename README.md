@@ -30,7 +30,7 @@ make uninstall
 
 # 使用
 
-1. 打开 head/config.h 文件，添加需要的配置，删除不需要的配置 (可使用 spy++ 等工具获取窗口类型和标题)
+1. 打开 head/config.h 文件，添加需要的配置，删除不需要的配置 (可使用 spy++ 等工具获取窗口类型和标题，可设置透明度范围：[0, 255])
 
 ```c
 // head/config.h                                      记事本      QQ                   任务栏            Firefox               资源管理器
