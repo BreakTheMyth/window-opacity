@@ -17,7 +17,8 @@ winget install Microsoft.Git
 # 安装
 
 ```powershell
-git clone https://github.com/BreakTheMyth/window-opacity.git && cd window-opacity
+git clone https://github.com/BreakTheMyth/window-opacity.git
+cd window-opacity
 make install
 ```
 

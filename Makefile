@@ -22,7 +22,10 @@ clean:
 	del $(TARGET) $(OBJS) $(DEPS)
 
 run: all
-	./$(TARGET)
+	powershell -Command Start-Process $(TARGET)
+
+stop:
+	taskkill /f /im $(TARGET)
 
 install: all
 	copy $(TARGET) "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
