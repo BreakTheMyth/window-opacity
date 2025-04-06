@@ -1,4 +1,3 @@
-#include <windows.h>
 #include <stdio.h>
 #include <string.h>
 #include "head/config.h"

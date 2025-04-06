@@ -1,5 +1,3 @@
-#pragma once
-
 #include <windows.h>
 
 void CALLBACK winEvent(HWINEVENTHOOK hWinEventHook,
