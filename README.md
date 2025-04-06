@@ -30,7 +30,7 @@ make uninstall
 
 # 使用
 
-打开 head/config.h 文件，添加需要的配置，删除不需要的配置 (可使用 spy++ 等工具获取窗口类型和标题)
+1. 打开 head/config.h 文件，添加需要的配置，删除不需要的配置 (可使用 spy++ 等工具获取窗口类型和标题)
 
 ```c
 // head/config.h                                      记事本      QQ                   任务栏            Firefox               资源管理器
@@ -40,17 +40,17 @@ make uninstall
 #define /*窗口获得焦点时的透明度*/ WINDOW_FOCUS_OPACITY 224,       224,                  192,             224,                  224
 ```
 
-修改完后进行调试
+2. 修改完后进行调试
 
 ```powershell
 make run
 ```
 
-结束调试重新安装
+3. 结束调试重新安装
 
 ```powershell
 make stop
 make install
 ```
 
-程序会在下次开机时启动
+4. 程序会在下次开机时启动
