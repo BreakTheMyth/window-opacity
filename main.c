@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <string.h>
 #include "head/config.h"
 #include "head/main.h"
@@ -14,7 +13,7 @@ BYTE g_preWinOpacity;
 int WINAPI WinMain(HINSTANCE hInstance,
     HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     SetWinEventHook(EVENT_SYSTEM_FOREGROUND,
-        EVENT_SYSTEM_FOREGROUND, NULL, winEvent, 0, 0,
+        EVENT_SYSTEM_FOREGROUND, NULL, winHandler, 0, 0,
         WINEVENT_OUTOFCONTEXT);
 
     MSG msg;
@@ -27,7 +26,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
     return 0;
 }
 
-void CALLBACK winEvent(HWINEVENTHOOK hWinEventHook,
+void CALLBACK winHandler(HWINEVENTHOOK hWinEventHook,
     DWORD event,         HWND  hwnd, 
     LONG  idObject,      LONG  idChild,
     DWORD dwEventThread, DWORD dwmsEventTime) {
