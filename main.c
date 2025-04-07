@@ -53,6 +53,7 @@ void CALLBACK winHandler(HWINEVENTHOOK hWinEventHook,
         setWindowOpacity(hwnd, g_focus[i]);
         g_preWin = hwnd;
         g_preWinOpacity = g_opacity[i];
+        break;
     }
     
 }
