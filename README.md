@@ -30,14 +30,14 @@ make uninstall
 
 # 使用
 
-1. 打开 head/config.h 文件，添加需要的配置，删除不需要的配置 (可使用 spy++ 等工具获取窗口类型和标题，可设置透明度范围：[0, 255])
+1. 打开 head/config.h 文件，添加需要的配置，删除不需要的配置 (可使用 spy++ 等工具获取窗口类型和标题，标题可以模糊一点，只要包含特征性字符串，或者使用NULL匹配所有的标题，透明度的设置范围：[0, 255])
 
 ```c
-// head/config.h                                      记事本      QQ                   任务栏            浏览器                 资源管理器
-#define /*窗口的标题*/            WINDOW_TITLE         NULL,      NULL,                 NULL,            NULL,                 NULL
-#define /*窗口的类名*/            WINDOW_CLASS         "Notepad", "Chrome_WidgetWin_1", "Shell_TrayWnd", "MozillaWindowClass", "CabinetWClass"
-#define /*窗口失去焦点时的透明度*/ WINDOW_OPACITY       192,       192,                  192,             192,                  192
-#define /*窗口获得焦点时的透明度*/ WINDOW_FOCUS_OPACITY 224,       224,                  192,             224,                  224
+// head/config.h                                       记事本      VSCode                QQ                    任务栏           资源管理器        开始菜单                       Firefox             
+#define WINDOW_TITLE         /*窗口的标题*/             NULL,      "Visual Studio Code", "QQ",                 NULL,            NULL,            NULL,                         NULL                 
+#define WINDOW_CLASS         /*窗口的类名*/             "Notepad", "Chrome_WidgetWin_1", "Chrome_WidgetWin_1", "Shell_TrayWnd", "CabinetWClass", "Windows.UI.Core.CoreWindow", "MozillaWindowClass" 
+#define WINDOW_OPACITY       /*窗口失去焦点时的透明度*/  192,       192,                  192,                  224,             192,             224,                          192                  
+#define WINDOW_FOCUS_OPACITY /*窗口获得焦点时的透明度*/  224,       224,                  224,                  224,             224,             224,                          224                  
 ```
 
 2. 修改完后进行调试

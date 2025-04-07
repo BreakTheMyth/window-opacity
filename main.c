@@ -46,8 +46,8 @@ void CALLBACK winHandler(HWINEVENTHOOK hWinEventHook,
     RealGetWindowClassA(hwnd, curClass, 256);
 
     for (int i = 0; i < g_winNum; i++) {
-        if (strcmp(curClass, g_class[i])) continue;
-        if (g_title[i] && strcmp(curTitle, g_title[i]))
+        if (g_class[i] && strcmp(curClass, g_class[i]) || 
+            g_title[i] && !strstr(curTitle, g_title[i]))
             continue;
 
         setWindowOpacity(hwnd, g_focus[i]);
