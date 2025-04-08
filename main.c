@@ -2,14 +2,6 @@
 #include "head/config.h"
 #include "head/main.h"
 
-char *g_title[]  = {WINDOW_TITLE};
-char *g_class[]  = {WINDOW_CLASS};
-BYTE g_opacity[] = {WINDOW_OPACITY};
-BYTE g_focus[]   = {WINDOW_FOCUS_OPACITY};
-int  g_winNum    = sizeof(g_class) / sizeof(char*);
-HWND g_preWin;
-BYTE g_preWinOpacity;
-
 int WINAPI WinMain(HINSTANCE hInstance,
     HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     SetWinEventHook(EVENT_SYSTEM_FOREGROUND,
