@@ -1,11 +1,11 @@
 .PHONY: all clean run install uninstall
 
 CC 	    = gcc
-CFLAGS  = -Wall -MMD -MP -g -O2
+CFLAGS  = -Wall -MMD -MP -O2
 LDFLAGS = -mwindows
 TARGET  = window-opacity.exe
-SRCS    = main.c
-OBJS    = $(SRCS:%.c=%.o)
+SRCS    = main.c config.c timer.c
+OBJS    = $(SRCS:%.c=bin/%.o)
 DEPS    = $(OBJS:.o=.d)
 
 -include $(DEPS)
@@ -13,22 +13,12 @@ DEPS    = $(OBJS:.o=.d)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $^ -o $@ $(LDFLAGS)
+	$(CC) -o $@ $^ $(LDFLAGS)
 
-%.o: %.c
+bin/%.o: src/%.c
+	if not exist bin mkdir bin
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean: 
-	del $(TARGET) $(OBJS) $(DEPS)
-
-run: all
-	powershell -Command Start-Process $(TARGET)
-
-stop:
-	taskkill /f /im $(TARGET)
-
-install: all
-	copy $(TARGET) "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
-
-uninstall:
-	del "C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\$(TARGET)"
+	rmdir /s /q bin
+	del $(TARGET)
